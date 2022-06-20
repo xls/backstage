@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "backstagecluster-d2a3"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "backstagecluster-d2a3"
+  template:
+    metadata:
+      labels:
+        app: "backstagecluster-d2a3"
+    spec:
+      containers:
+        - name: "backstagecluster-d2a3"
+          image: "backstageregistry.azurecr.io/backstagecluster"
+          ports:
+          - containerPort: 80
